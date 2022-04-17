@@ -30,7 +30,7 @@ Motoko is a high-level language. It abstracts away many of the difficulties of l
 
 Creating and fostering the adoption of a new language is extremely difficult. It's a huge point of friction for developers to learn a new language with all of its nuance, idioms, libraries, package managers, etc.
 
-Enter [Azle](https://github.com/demergent-labs/azle). Azle is a TypeScript CDK. It allows developers to write their canisters in TypeScript (and technically JavaScript as well). This is a big deal. TypeScript is one of the most popular programming languages ever to exist. It has years of documentation, blog posts, YouTube videos, podcasts, and expertise. There are millions of TypeScript developers that already exist.
+Enter [Azle](https://github.com/demergent-labs/azle). Azle is a TypeScript CDK. It allows developers to write their canisters in TypeScript (and technically JavaScript as well). This is a big deal. TypeScript and JavaScript are some of the most popular programming languages ever to exist. They have years' worth (for JavaScript decades) of community, libraries, documentation, YouTube videos, blog posts, podcasts, and expertise. There are millions of TypeScript developers that already exist and already love TypeScript. Why take that away from them?
 
 Here's the source code for a simple canister written in TypeScript with Azle. It's just a read-only query function that returns "Hello World!":
 
@@ -42,7 +42,7 @@ export function helloWorld(): Query<string> {
 }
 ```
 
-Deploying that to the IC with a simple `dfx deploy --network ic` will instantly allow anyone in the world to call your `helloWorld` function and see that beautiful phrase. What an amazing developer experience. Hats off to DFINITY for creating such an amazing platform.
+Deploying that to the IC with a simple `dfx deploy --network ic` will instantly allow anyone in the world to call this `helloWorld` function and see that beautiful phrase.
 
 Here's the source code for a simple canister that is a key-value store:
 
@@ -68,7 +68,9 @@ export function set(key: string, value: string): Update<void> {
 }
 ```
 
-That's a database folks. One `dfx deploy --network ic` and you have exposed a simple database to the world. The vision of the IC is to make web applications this easy to write. Eventually we will have unbounded scalability, near unhackability, and everything you want and need from a cloud platform, while focusing on the logic of your code.
+That's a database folks. One `dfx deploy --network ic` and you have exposed a simple database to the world.
+
+The vision of the IC is to make web applications this easy to write. Eventually we hope to have unbounded scalability, near unhackability, and everything you might want and need from a cloud platform.
 
 Asking developers to learn an entirely new language that itself is new (Motoko) is a very hard ask. It's a burden, it's a barrier, it's a hindrance to adoption of the IC. Asking developers to learn a difficult low-level language (Rust) is also a very hard ask. Not that some developers will not choose to learn Motoko or Rust, many will and have. But there is now an alternative, which is to reuse the languages and skills that many developers already cherish.
 
@@ -80,13 +82,15 @@ Watch JavaScript eat the Internet Computer.
 
 ## Demergent Labs
 
-And now on to the second thing I would like to introduce you to, my new company Demergent Labs. We aim to accelerate the adoption of Web3 and the Internet Computer. We're starging off on our mission with three flagship projects: Azle (TypeScript CDK), [Sudograph (GraphQL Database)](https://github.com/sudograph/sudograph), and Kybra (Python CDK).
+And now on to the second thing I would like to introduce you to, a new company called Demergent Labs. Our goal is to accelerate the adoption of Web3 and the Internet Computer. We're starging off with three flagship projects: [Azle (TypeScript CDK)](https://github.com/demergent-labs/azle), [Sudograph (GraphQL Database)](https://github.com/sudograph/sudograph), and [Kybra (Python CDK)](https://github.com/demergent-labs/kybra).
 
-By focusing on the technologies that are really working well in the Web2 world, we believe we can accelerate the adoption of Web3 (obviously). We are removing barriers to entry, making it extremely simple for developers to come over to the IC and adopt the platform, taking advantage of its unique characeteristics and benefits over the centralized cloud providers.
+Our thesis is simple. By focusing on the technologies that are really working well in the Web2 world, we believe we can accelerate the adoption of Web3. We can also greatly improve some of the technologies that made Web3 great ([decentralized npm registry](https://github.com/demergent-labs/deregistry) anyone?).
 
-Azle and Sudograph are currently in beta, with 1.0 releases slated for this year (Kybra 1.0 as a stretch goal). The dream of an infinitely scalable and unhackable decentralized computer is beautiful. We aren't there yet, but we're working hard to get there.
+We are removing barriers to entry, making it extremely simple for developers to come over to the IC and write applications that take advantage of its unique characeteristics and benefits over the centralized cloud providers. We're also experimenting with new intellectual property, governance, and funding mechanisms that could solve some of the sustainability issues that have plagued open source software since its inception.
 
-Come join us.
+There's a lot of work to do in Web3 and for the Internet Computer. The dream of an infinitely scalable and unhackable decentralized computer is beautiful. We aren't there yet, but we're working hard to get there.
+
+Please, in your own way and with your skills and talents, help us build this amazing new future.
 
 Yours truly,
 
