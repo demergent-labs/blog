@@ -10,7 +10,7 @@ I would like to introduce you to two new things.
 
 ## Azle
 
-The first is [Azle](https://github.com/demergent-labs/azle), a [TypeScript](https://www.typescriptlang.org/) Canister Development Kit (CDK) for the [Internet Computer](https://internetcomputer.org/) (IC). If you are to understand Azle, you must first understand the IC.
+The first is [Azle](https://github.com/demergent-labs/azle), a [TypeScript](https://www.typescriptlang.org/) Canister Development Kit (CDK) for the [Internet Computer](https://internetcomputer.org/) (IC). If you're new to the IC, that last sentence was probably a mouthful. First things first, if you are to understand Azle you must first understand the IC.
 
 The IC is a new decentralized cloud platform. As opposed to most cloud platforms that exist today, the IC aims to be owned and controlled by multiple parties (instead of one centralized legal entity). It's a decentralized logical computer built from an open protocol that will be owned and operated by independent entities. This has many benefits, and those benefits are broadly discussed in the Web3 and blockchain communities (seek out those communities for more information if you're interested).
 
