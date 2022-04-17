@@ -30,7 +30,7 @@ Motoko is a high-level language. It abstracts away many of the difficulties of l
 
 Creating and fostering the adoption of a new language is extremely difficult. It's a huge point of friction for developers to learn a new language with all of its nuance, idioms, libraries, package managers, etc.
 
-Enter [Azle](https://github.com/demergent-labs/azle). Azle is a TypeScript CDK. It allows developers to write their canisters in TypeScript (and technically JavaScript as well). This is a big deal. TypeScript and JavaScript are some of the most popular programming languages ever to exist. They have years' worth (for JavaScript decades) of community, libraries, documentation, YouTube videos, blog posts, podcasts, and expertise. There are millions of TypeScript developers that already exist and already love TypeScript. Why take that away from them?
+Enter [Azle](https://github.com/demergent-labs/azle). Azle is a TypeScript CDK. It allows developers to write their canisters in TypeScript (and technically JavaScript as well). This is a big deal. TypeScript and JavaScript are some of the most popular programming languages ever to exist. They have years' worth (for JavaScript decades) of community, libraries, documentation, YouTube videos, blog posts, podcasts, and expertise. There are millions of TypeScript and JavaScript developers that already exist and already love TypeScript and JavaScript. Why take that away from them?
 
 Here's the source code for a simple canister written in TypeScript with Azle. It's just a read-only query function that returns "Hello World!":
 
@@ -70,13 +70,10 @@ export function set(key: string, value: string): Update<void> {
 
 That's a database folks. One `dfx deploy --network ic` and you have exposed a simple database to the world.
 
-The vision of the IC is to make web applications this easy to write. Eventually we hope to have unbounded scalability, near unhackability, and everything you might want and need from a cloud platform.
+And there you have it, just a taste of what it's like to write canisters with TypeScript and JavaScript on the IC. Let's end our discussion of Azle with some wise words:
 
-Asking developers to learn an entirely new language that itself is new (Motoko) is a very hard ask. It's a burden, it's a barrier, it's a hindrance to adoption of the IC. Asking developers to learn a difficult low-level language (Rust) is also a very hard ask. Not that some developers will not choose to learn Motoko or Rust, many will and have. But there is now an alternative, which is to reuse the languages and skills that many developers already cherish.
-
-[Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich) once said ["always bet on JS"](http://brendaneich.github.io/ModernWeb.tw-2015/#74).
-
-Like Jeff Atwood has said, "Anything that can be written in JavaScript eventually will be written in JavaScript".
+* [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich) once said ["always bet on JS"](http://brendaneich.github.io/ModernWeb.tw-2015/#74)
+* [Jeff Atwood](https://en.wikipedia.org/wiki/Jeff_Atwood) once said "any application that can be written in JavaScript, will eventually be written in JavaScript"
 
 Watch JavaScript eat the Internet Computer.
 
