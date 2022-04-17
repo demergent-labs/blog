@@ -2,7 +2,9 @@
 
 April 16, 2022
 
-TLDR check out [Azle](https://github.com/demergent-labs/azle) and [Demergent Labs](https://github.com/demergent-labs).
+## TLDR
+
+Write canisters in TypeScript with [Azle](https://github.com/demergent-labs/azle) and keep tabs on [Demergent Labs](https://github.com/demergent-labs) for GraphQL, Python, and more on the Internet Computer.
 
 Hi,
 
