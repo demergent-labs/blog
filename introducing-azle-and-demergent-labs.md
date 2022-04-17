@@ -74,7 +74,7 @@ The vision of the IC is to make web applications this easy to write. Eventually 
 
 Asking developers to learn an entirely new language that itself is new (Motoko) is a very hard ask. It's a burden, it's a barrier, it's a hindrance to adoption of the IC. Asking developers to learn a difficult low-level language (Rust) is also a very hard ask. Not that some developers will not choose to learn Motoko or Rust, many will and have. But there is now an alternative, which is to reuse the languages and skills that many developers already cherish.
 
-Like Brendan Eich says, "Always Bet on JS". 
+[Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich) once said ["always bet on JS"](http://brendaneich.github.io/ModernWeb.tw-2015/#74).
 
 Like Jeff Atwood has said, "Anything that can be written in JavaScript eventually will be written in JavaScript".
 
