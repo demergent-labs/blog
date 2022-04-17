@@ -26,9 +26,9 @@ But there are a few problems with using Motoko and Rust on the IC. Let's start w
 
 Rust is a very difficult language to learn. It's a systems or low-level language. It gives you extreme control over many aspects of the environment it runs in, and thus is more unwieldly. It's a beautiful language that I love to use, but many developers (especially newcomers to programming in general) will have an extremely difficult time learning Rust. There's a reason that high-level languages exist.
 
-Motoko is a high-level language. It abstracts away many of the difficulties of low-level languages like Rust. That's why developers love high-level languages, they are simply easier to use. But Motoko is a very new language. It lacks a large community, documentation, videos, blog posts, podcasts, and expertise. It is simply a new language, and there hasn't been sufficient time nor interest for these things to arise.
+Motoko is a high-level language. It abstracts away many of the difficulties of low-level languages like Rust. That's why developers love high-level languages, they are simply easier to use. But Motoko is a very new language. It lacks a large community, many libraries, mature documentation, YouTube videos, blog posts, podcasts, and generally years of expertise. Put simply it is a new language, and there hasn't been sufficient time nor interest for these resources to arise.
 
-Creating and expecting adoption of a new language is something very difficult. Many languages are created but most fail.
+Creating and fostering the adoption of a new language is extremely difficult. It's a huge point of friction for developers to learn a new language with all of its nuance, idioms, libraries, package managers, etc.
 
 Enter [Azle](https://github.com/demergent-labs/azle). Azle is a TypeScript CDK. It allows developers to write their canisters in TypeScript (and technically JavaScript as well). This is a big deal. TypeScript is one of the most popular programming languages ever to exist. It has years of documentation, blog posts, YouTube videos, podcasts, and expertise. There are millions of TypeScript developers that already exist.
 
