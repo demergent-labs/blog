@@ -28,7 +28,45 @@ Motoko is a high-level language. It abstracts away many of the difficulties of l
 
 Creating and expecting adoption of a new language is something very difficult. Many languages are created but most fail.
 
-Enter Azle. Azle is a TypeScript CDK. It allows developers to write their canisters in TypeScript (and technically JavaScript as well). This is a big deal. TypeScript is one of the most popular programming languages ever to exist. It has years of documentation, blog posts, YouTube videos, podcasts, and expertise. There are millions of TypeScript developers that already exist.
+Enter [Azle](https://github.com/demergent-labs/azle). Azle is a TypeScript CDK. It allows developers to write their canisters in TypeScript (and technically JavaScript as well). This is a big deal. TypeScript is one of the most popular programming languages ever to exist. It has years of documentation, blog posts, YouTube videos, podcasts, and expertise. There are millions of TypeScript developers that already exist.
+
+Here's the source code for a simple canister written in TypeScript with Azle. It's just a read-only query function that returns "Hello World!":
+
+```typescript
+import { Query } from 'azle';
+
+export function helloWorld(): Query<string> {
+  return 'Hello World!';
+}
+```
+
+Deploying that to the IC with a simple `dfx deploy --network ic` will instantly allow anyone in the world to call your `helloWorld` function and see that beautiful phrase. What an amazing developer experience. Hats off to DFINITY for creating such an amazing platform.
+
+Here's the source code for a simple canister that is a key-value store:
+
+```typescript
+import {
+    Query,
+    Update,
+    Opt
+} from 'azle';
+
+type Store = {
+    [key: string]: string;
+};
+
+let store: Store = {};
+
+export function get(key: string): Query<Opt<string>> {
+    return store[key] ?? null;
+}
+
+export function set(key: string, value: string): Update<void> {
+    store[key] = value;
+}
+```
+
+That's a database folks. One `dfx deploy --network ic` and you have exposed a simple database to the world. The vision of the IC is to make web applications this easy to write. Eventually we will have unbounded scalability, near unhackability, and everything you want and need from a cloud platform, while focusing on the logic of your code.
 
 Asking developers to learn an entirely new language that itself is new (Motoko) is a very hard ask. It's a burden, it's a barrier, it's a hindrance to adoption of the IC. Asking developers to learn a difficult low-level language (Rust) is also a very hard ask. Not that some developers will not choose to learn Motoko or Rust, many will and have. But there is now an alternative, which is to reuse the languages and skills that many developers already cherish.
 
@@ -40,7 +78,13 @@ Watch JavaScript eat the Internet Computer.
 
 ## Demergent Labs
 
-Demergent Labs aims to accelerate the adoption of Web3 and the Internet Computer.
+And now on to the second thing I would like to introduce you to, my new company Demergent Labs. We aim to accelerate the adoption of Web3 and the Internet Computer. We're starging off on our mission with three flagship projects: Azle (TypeScript CDK), [Sudograph (GraphQL Database)](https://github.com/sudograph/sudograph), and Kybra (Python CDK).
+
+By focusing on the technologies that are really working well in the Web2 world, we believe we can accelerate the adoption of Web3 (obviously). We are removing barriers to entry, making it extremely simple for developers to come over to the IC and adopt the platform, taking advantage of its unique characeteristics and benefits over the centralized cloud providers.
+
+Azle and Sudograph are currently in beta, with 1.0 releases slated for this year (Kybra 1.0 as a stretch goal). The dream of an infinitely scalable and unhackable decentralized computer is beautiful. We aren't there yet, but we're working hard to get there.
+
+Come join us.
 
 Yours truly,
 
