@@ -73,7 +73,7 @@ That's a database folks. One `dfx deploy --network ic` and you have exposed a si
 And there you have it, just a taste of what it's like to write canisters with TypeScript and JavaScript on the IC. Let's end our discussion of Azle with some wise words:
 
 * [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich) once said ["always bet on JS"](http://brendaneich.github.io/ModernWeb.tw-2015/#74)
-* [Jeff Atwood](https://en.wikipedia.org/wiki/Jeff_Atwood) once said "any application that can be written in JavaScript, will eventually be written in JavaScript"
+* [Jeff Atwood](https://en.wikipedia.org/wiki/Jeff_Atwood) once said ["any application that can be written in JavaScript, will eventually be written in JavaScript"](https://blog.codinghorror.com/the-principle-of-least-power/)
 
 Watch JavaScript eat the Internet Computer.
 
