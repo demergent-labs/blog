@@ -24,7 +24,7 @@ For the past couple years most developers have written their canisters in [Motok
 
 But there are a few problems with using Motoko and Rust on the IC. Let's start with Rust.
 
-Rust is a very difficult language to learn. It's a systems or low-level language. It gives you extreme control over many aspects of the environment it runs in, and thus is more unwieldly. It's a beautiful language that I love to use, but many developers (especially newcomers to programming in general) will have an extremely difficult time learning Rust. Even though it is a joy to use once you get over the learning curve and has many ergonomic features that many other low-level languages don't have, it is still a low-level language. There's a reason that high-level languages exist.
+Rust is a very difficult language to learn. It's a systems or low-level language. It gives you extreme control over many aspects of the environment it runs in, and thus is more unwieldly. It's a beautiful language that I love to use, but many developers (especially newcomers to programming in general) will have an extremely difficult time learning Rust. There's a reason that high-level languages exist.
 
 Motoko is a high-level language. It abstracts away many of the difficulties of low-level languages like Rust. That's why developers love high-level languages, they are simply easier to use. But Motoko is a very new language. It lacks a large community, documentation, videos, blog posts, podcasts, and expertise. It is simply a new language, and there hasn't been sufficient time nor interest for these things to arise.
 
