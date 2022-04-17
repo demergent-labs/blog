@@ -6,6 +6,8 @@ April 16, 2022
 
 Write canisters in TypeScript with [Azle](https://github.com/demergent-labs/azle) and keep tabs on [Demergent Labs](https://github.com/demergent-labs) for GraphQL, Python, and more on the Internet Computer.
 
+## Introduction
+
 Hi,
 
 I would like to introduce you to two new things.
