@@ -81,7 +81,7 @@ Watch JavaScript eat the Internet Computer.
 
 And now on to the second thing I would like to introduce you to, a new company called Demergent Labs. Our goal is to accelerate the adoption of Web3 and the Internet Computer. We're starting off with three flagship projects: [Azle (TypeScript CDK)](https://github.com/demergent-labs/azle), [Sudograph (GraphQL Database)](https://github.com/sudograph/sudograph), and [Kybra (Python CDK)](https://github.com/demergent-labs/kybra).
 
-Our thesis is simple. By focusing on the technologies that are really working well in the Web2 world, we believe we can accelerate the adoption of Web3. We can also greatly improve some of the technologies that made Web3 great ([decentralized npm registry](https://github.com/demergent-labs/deregistry) anyone?).
+Our thesis is simple. By focusing on the technologies that are really working well in the Web2 world, we believe we can accelerate the adoption of Web3. We can also greatly improve some of the technologies that made Web2 great ([decentralized npm registry](https://github.com/demergent-labs/deregistry) anyone?).
 
 We are removing barriers to entry, making it extremely simple for developers to come over to the IC and write applications that take advantage of its unique characeteristics and benefits over the centralized cloud providers. We're also experimenting with new intellectual property, governance, and funding mechanisms that could solve some of the sustainability issues that have plagued open source software since its inception.
 
