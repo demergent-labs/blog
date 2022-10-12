@@ -28,11 +28,11 @@ Beyond choosing and proficiently utilizing a general-purpose programming languag
 
 The IC has yet to find a data storage and retrieval model that is scalable and has an excellent developer experience (DX). We are attempting to solve this problem with [Sudograph](https://github.com/sudograph/sudograph), a GraphQL database for the IC.
 
-Sudograph is in a solid beta stage. It is currently focused on creating an excellent DX within a single canister. Though the capacity of individual canisters is relatively small (~4GiB), that capacity will continue to grow over time. We wish to push that capacity as far as possible, thus allowing us to maintain simplicity in Sudograph's design and in its DX. Once we reach the scalability limits of a single canister, we may consider how to maintain Sudograph's DX across multiple canisters.
+Sudograph is in a solid beta stage. It is currently focused on creating an excellent DX within a single canister. Though the capacity of individual canisters is relatively small (~4-8GiB), that capacity will continue to grow over time. We wish to push that capacity as far as possible, thus allowing us to maintain simplicity in Sudograph's design and in its DX. Once we reach the scalability limits of a single canister, we may consider how to maintain Sudograph's DX across multiple canisters.
 
 We foresee various database languages and underlying database architectures will be necessary to service the many different application use cases on the IC. We have chosen to start with GraphQL as the database language, and to implement a theoretically simple relational-style database under-the-hood known as [Sudodb](https://github.com/sudograph/sudograph/tree/main/sudodb).
 
-Similar to the CDK framework, we plan to look into creating a framework that will allow for multiple database languages to be built on top of our underlying database. We also plan to look into doing the reverse, and allow database languages to choose their underlying database. Creating this framework will hopefully provide similar benefits as the CDK framework, allowing many teams to build many modular database languages and database implementations to their liking.
+Similar to the CDK framework, we plan to look into creating a framework that will allow for multiple database languages to be built on top of our underlying database. We also plan to look into doing the reverse, allowing database languages to choose their underlying database. The idea of this framework is much less mature than the CDK framework, but if it makes sense to build it then we hope it provide similar benefits, allowing many teams to build many modular database languages and database implementations to their liking.
 
 ## Beyond Part 1
 
