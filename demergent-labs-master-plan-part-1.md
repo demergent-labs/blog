@@ -24,12 +24,20 @@ Demergent Labs doesn't have any concrete plans to pursue languages beyond `TypeS
 
 ### Database Languages
 
-Beyond choosing and proficiently utilizing a general-purpose programming language, one of the next most signficant challenges to building applications is the data storage and retrieval system. Applications must be able to efficiently persist data in various formats, often with complex interrelationships, and be able to efficiently retrieve specific data based on often complex ad-hoc requirements. And once such a system is created, providing developers access to that system while maintaining a simple interface can be a major challenge.
+Beyond choosing and proficiently utilizing a general-purpose programming language, one of the next most signficant challenges to building applications is the data storage and retrieval system. Applications must be able to efficiently persist data in various formats, often with complex interrelationships, and be able to efficiently retrieve specific data based on often complex ad-hoc requirements. And once such a system is created, providing developers simple yet flexible access to that system can be a major challenge.
 
 The IC has yet to find a data storage and retrieval model that is scalable and has an excellent developer experience (DX). We are attempting to solve this problem with [Sudograph](https://github.com/sudograph/sudograph), a GraphQL database for the IC.
 
-Sudograph is in a solid beta stage. It is currently focused on creating an excellent DX in the single canister experience. The capacity of individual canisters is relatively small (~4gib) but will continue to grow over time, and we wish to push that capacity as far as possible. This will allow us to maintain simplicity in Sudograph's design and in its DX. Once we reach the scalability limits of a single canister, we may consider how to maintain Sudograph's DX across multiple canisters.
+Sudograph is in a solid beta stage. It is currently focused on creating an excellent DX within a single canister. Though the capacity of individual canisters is relatively small (~4GiB), that capacity will continue to grow over time. We wish to push that capacity as far as possible, thus allowing us to maintain simplicity in Sudograph's design and in its DX. Once we reach the scalability limits of a single canister, we may consider how to maintain Sudograph's DX across multiple canisters.
 
-We foresee various database languages and underlying database architectures will be necessary to service the various application use cases on the IC. We have chosen to start with GraphQL as the database language, and to implement a theoretically simple relational-style database under-the-hood. Again we plan to create a framework that will allow for multiple database languages to be built on top of the underlying database we are creating. We would also like to alloweach database language to choose its underlying database. Creating this framework will hopefully provide similar benefits as the CDK framework, allowing many teams to build many database languages and implementations to their liking.
+We foresee various database languages and underlying database architectures will be necessary to service the many different application use cases on the IC. We have chosen to start with GraphQL as the database language, and to implement a theoretically simple relational-style database under-the-hood known as [Sudodb](https://github.com/sudograph/sudograph/tree/main/sudodb).
+
+Similar to the CDK framework, we plan to look into creating a framework that will allow for multiple database languages to be built on top of our underlying database. We also plan to look into doing the reverse, and allow database languages to choose their underlying database. Creating this framework will hopefully provide similar benefits as the CDK framework, allowing many teams to build many modular database languages and database implementations to their liking.
+
+## Beyond Part 1
+
+We have some ideas for Master Plan Part 2 (e.g. decentralized package registries for npm, pip, and cargo) but we're not ready to decide just yet. We are excited to make significant progress in the next 1-2 years and then reasess based on the state of the world then.
+
+Thanks for reading,
 
 - Jordan Last, Chief Executive/Engineering Officer @ Demergent Labs
