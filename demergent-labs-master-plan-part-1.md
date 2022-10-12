@@ -18,7 +18,7 @@ Thus we are beginning by enabling `TypeScript`, `JavaScript`, and `Python` throu
 
 In addition to the individual CDKs, we are working on a CDK framework that we hope will allow for more rapid development of CDKs by sharing common functionality between them. The initial version of the framework is nearing completion, and we will soon plug it into both Azle and Kybra, which will hopefully speed up the development of Kybra significantly.
 
-The next low-hanging fruit for the CDK framework will probably be compile-to-JS languages like `Dart`, `Elm`, `PureScript`, `ClojureScript`, and various others. Beyond those languages, the framework is intended to work well with higher-level languages that have a runtime that can be compiled into Wasm, and most especially runtimes written in, or that can interoperate well with, Rust.
+The next low-hanging fruit for the CDK framework will probably be compile-to-JS languages like `Kotlin`, `Dart`, `Elm`, `PureScript`, `ClojureScript`, and various others. Beyond those languages, the framework is intended to work well with higher-level languages that have a runtime that can be compiled into Wasm, and most especially runtimes written in, or that can interoperate well with, Rust.
 
 Demergent Labs doesn't have any concrete plans to pursue languages beyond `TypeScript`, `JavaScript`, and `Python`, but we hope that our efforts will provide a solid foundation for other teams to implement languages of their choosing.
 
