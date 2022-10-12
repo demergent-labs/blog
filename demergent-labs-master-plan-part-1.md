@@ -34,6 +34,14 @@ We foresee various database languages and underlying database architectures will
 
 Similar to the CDK framework, we plan to look into creating a framework that will allow for multiple database languages to be built on top of our underlying database. We also plan to look into doing the reverse, allowing database languages to choose their underlying database. The idea of this framework is much less mature than the CDK framework, but if it makes sense to build it then we hope it provides similar benefits, allowing many teams to build many modular database languages and database implementations to their liking.
 
+## Business Models and Decentralization
+
+It is likely that multiple parts of our Master Plan will incorporate experimenting with business models that are highly compatible with the open source ethos. We call these business models open source native.
+
+With that being said, during Master Plan Part 1 a secondary goal to delivering fundamental open source developer tools is finding sustainable open source native business models and decentralizing our projects. We imagine our most popular projects eventually becoming DAOs that are directly owned and controlled by various interested parties. Sources of revenue could be from various token and/or cycle sharing models.
+
+It is very early days for these unproven business models, but we are deeply committed to finding a sustainable way for open source developers to make a living doing what they do best and love most, without having to look for subsidies from larger companies.
+
 ## Beyond Part 1
 
 We have some ideas for Master Plan Part 2 (e.g. decentralized package registries for npm, pip, and cargo) but we're not ready to decide just yet. We are excited to make significant progress in the next 1-2 years and then reasess based on the state of the world then.
