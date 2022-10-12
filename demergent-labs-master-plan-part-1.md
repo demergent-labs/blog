@@ -18,10 +18,16 @@ Thus we are beginning by enabling `TypeScript`, `JavaScript`, and `Python` throu
 
 In addition to the individual CDKs, we are working on a CDK framework that we hope will allow for more rapid development of CDKs by sharing common functionality between them. The initial version of the framework is nearing completion, and we will soon plug it into both Azle and Kybra, which will hopefully speed up the development of Kybra significantly.
 
-The next low-hanging fruit for the CDK framework will probably be compile-to-JS languages like `Dart`, `Elm`, `PureScript`, `ClojureScript`, and various others. Beyond those languages, the framework is intended to work well with higher-level languages that have a runtime that can be compiled into Wasm, and most especially those written in or that can interoperate well with Rust.
+The next low-hanging fruit for the CDK framework will probably be compile-to-JS languages like `Dart`, `Elm`, `PureScript`, `ClojureScript`, and various others. Beyond those languages, the framework is intended to work well with higher-level languages that have a runtime that can be compiled into Wasm, and most especially runtimes written in, or that can interoperate well with, Rust.
 
-Demergent Labs doesn't have any concrete plans to pursue languages beyond `TypeScript`, `JavaScript`, and `Python`, but we hope that our efforts will provide a solid foundation for others teams to pick up languages of their choosing.
+Demergent Labs doesn't have any concrete plans to pursue languages beyond `TypeScript`, `JavaScript`, and `Python`, but we hope that our efforts will provide a solid foundation for other teams to implement languages of their choosing.
 
 ### Database Languages
+
+Beyond choosing and proficiently utilizing a general-purpose programming language, one of the next most signficant challenges to building applications is the data storage and retrieval system. Applications must be able to efficiently persist data in various formats, often with complex interrelationships, and be able to efficiently retrieve specific data based on often complex ad-hoc requirements. And once such a system is created, providing developers access to that system while maintaining a simple interface can be a major challenge.
+
+The IC has yet to find a data storage and retrieval model that is scalable and has an excellent developer experience (DX). We are attempting to solve this problem with [Sudograph](https://github.com/sudograph/sudograph), a GraphQL database for the IC.
+
+Sudograph is in a solid beta stage. It is currently focused on creating an excellent DX in the single canister experience.
 
 - Jordan Last, Chief Executive/Engineering Officer @ Demergent Labs
