@@ -51,3 +51,5 @@ We have some ideas for Master Plan Part 2 (e.g. decentralized package registries
 Thanks for reading,
 
 - Jordan Last, Chief Executive/Engineering Officer @ Demergent Labs
+- Dan Steren, Co-founder and Engineer @ Demergent Labs
+- Benjamin DeMann, Co-founder and Engineer @ Demergent Labs
