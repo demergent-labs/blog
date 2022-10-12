@@ -8,6 +8,20 @@ We are very interested in the success of the IC. Due to some personal efforts an
 
 ## Languages
 
+Master Plan Part 1 is all about languages, both general-purpose programming languages and database languages.
 
+### General-purpose Programming Languages
+
+General-purpose programming languages are arguably the most fundamental tools that developers need to build applications on any computer. The IC in particular has had good support for [Motoko](https://internetcomputer.org/docs/current/developer-docs/build/cdks/motoko-dfinity/motoko/) and [Rust](https://internetcomputer.org/docs/current/developer-docs/build/cdks/cdk-rs-dfinity/), but almost no other languages. Our belief is that requiring developers to learn a new language presents significant barriers to adoption of a new platform like the IC. Due to the robust communities of millions of developers in both the TypeScript/JavaScript and Python communities, starting with CDKs for these communities has the potential to provide enormous benefits to the IC ecosystem.
+
+Thus we are beginning by enabling `TypeScript`, `JavaScript`, and `Python` through two [Canister Development Kits](https://internetcomputer.org/docs/current/developer-docs/build/cdks/) (CDKs). `TypeScript` and `JavaScript` are enabled by [Azle](https://github.com/demergent-labs/azle), which is in a healthy beta stage. `Python` is enabled by [Kybra](https://github.com/demergent-labs/kybra), which is in a very early alpha stage.
+
+In addition to the individual CDKs, we are working on a CDK framework that we hope will allow for more rapid development of CDKs by sharing common functionality between them. The initial version of the framework is nearing completion, and we will soon plug it into both Azle and Kybra, which will hopefully speed up the development of Kybra significantly.
+
+The next low-hanging fruit for the CDK framework will probably be compile-to-JS languages like `Dart`, `Elm`, `PureScript`, `ClojureScript`, and various others. Beyond those languages, the framework is intended to work well with higher-level languages that have a runtime that can be compiled into Wasm, and most especially those written in or that can interoperate well with Rust.
+
+Demergent Labs doesn't have any concrete plans to pursue languages beyond `TypeScript`, `JavaScript`, and `Python`, but we hope that our efforts will provide a solid foundation for others teams to pick up languages of their choosing.
+
+### Database Languages
 
 - Jordan Last, Chief Executive/Engineering Officer @ Demergent Labs
