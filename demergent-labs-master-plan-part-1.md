@@ -28,6 +28,8 @@ Beyond choosing and proficiently utilizing a general-purpose programming languag
 
 The IC has yet to find a data storage and retrieval model that is scalable and has an excellent developer experience (DX). We are attempting to solve this problem with [Sudograph](https://github.com/sudograph/sudograph), a GraphQL database for the IC.
 
-Sudograph is in a solid beta stage. It is currently focused on creating an excellent DX in the single canister experience.
+Sudograph is in a solid beta stage. It is currently focused on creating an excellent DX in the single canister experience. The capacity of individual canisters is relatively small (~4gib) but will continue to grow over time, and we wish to push that capacity as far as possible. This will allow us to maintain simplicity in Sudograph's design and in its DX. Once we reach the scalability limits of a single canister, we may consider how to maintain Sudograph's DX across multiple canisters.
+
+We foresee various database languages and underlying database architectures will be necessary to service the various application use cases on the IC. We have chosen to start with GraphQL as the database language, and to implement a theoretically simple relational-style database under-the-hood. Again we plan to create a framework that will allow for multiple database languages to be built on top of the underlying database we are creating. We would also like to alloweach database language to choose its underlying database. Creating this framework will hopefully provide similar benefits as the CDK framework, allowing many teams to build many database languages and implementations to their liking.
 
 - Jordan Last, Chief Executive/Engineering Officer @ Demergent Labs
