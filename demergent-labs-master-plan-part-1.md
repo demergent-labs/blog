@@ -32,7 +32,7 @@ Sudograph is in a solid beta stage. It is currently focused on creating an excel
 
 We foresee various database languages and underlying database architectures will be necessary to service the many different application use cases on the IC. We have chosen to start with GraphQL as the database language, and to implement a theoretically simple relational-style database under-the-hood known as [Sudodb](https://github.com/sudograph/sudograph/tree/main/sudodb).
 
-Similar to the CDK framework, we plan to look into creating a framework that will allow for multiple database languages to be built on top of our underlying database. We also plan to look into doing the reverse, allowing database languages to choose their underlying database. The idea of this framework is much less mature than the CDK framework, but if it makes sense to build it then we hope it provide similar benefits, allowing many teams to build many modular database languages and database implementations to their liking.
+Similar to the CDK framework, we plan to look into creating a framework that will allow for multiple database languages to be built on top of our underlying database. We also plan to look into doing the reverse, allowing database languages to choose their underlying database. The idea of this framework is much less mature than the CDK framework, but if it makes sense to build it then we hope it provides similar benefits, allowing many teams to build many modular database languages and database implementations to their liking.
 
 ## Beyond Part 1
 
