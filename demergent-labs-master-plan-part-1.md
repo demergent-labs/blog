@@ -1,4 +1,4 @@
-# Demergent Labs Master Plan Part 1
+# Demergent Labs Grand Plan Part 1
 
 October 12, 2022
 
@@ -10,7 +10,7 @@ We are very interested in the success of the IC. Due to some personal efforts an
 
 ## Languages
 
-Master Plan Part 1 is all about languages, both general-purpose programming languages and database languages.
+Grand Plan Part 1 is all about languages, both general-purpose programming languages and database languages.
 
 ### General-purpose Programming Languages
 
@@ -38,15 +38,15 @@ Similar to the CDK framework, we plan to look into creating a framework that wil
 
 ## Business Models and Decentralization
 
-It is likely that multiple parts of our Master Plan will incorporate experimenting with business models that are highly compatible with the open source ethos. We call these business models open source native.
+It is likely that multiple parts of our Grand Plan will incorporate experimenting with business models that are highly compatible with the open source ethos. We call these business models open source native.
 
-With that being said, during Master Plan Part 1 a secondary goal to delivering fundamental open source developer tools is finding sustainable open source native business models and decentralizing our projects. We imagine our most popular projects eventually becoming DAOs that are directly owned and controlled by various interested parties. Sources of revenue could be from various token and/or cycle sharing models.
+With that being said, during Grand Plan Part 1 a secondary goal to delivering fundamental open source developer tools is finding sustainable open source native business models and decentralizing our projects. We imagine our most popular projects eventually becoming DAOs that are directly owned and controlled by various interested parties. Sources of revenue could be from various token and/or cycle sharing models.
 
 It is very early days for these unproven business models, but we are deeply committed to finding a sustainable way for open source developers to make a living doing what they do best and love most, without having to look for subsidies from larger companies.
 
 ## Beyond Part 1
 
-We have some ideas for Master Plan Part 2 (e.g. decentralized package registries for npm, pip, and cargo) but we're not ready to decide just yet. We are excited to make significant progress in the next 1-2 years and then reasess based on the state of the world then.
+We have some ideas for Grand Plan Part 2 (e.g. decentralized package registries for npm, pip, and cargo) but we're not ready to decide just yet. We are excited to make significant progress in the next 1-2 years and then reasess based on the state of the world then.
 
 Thanks for reading,
 
