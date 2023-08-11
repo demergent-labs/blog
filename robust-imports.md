@@ -3,106 +3,101 @@
     ol ol ol { list-style-type: lower-roman; }
 </style>
 # Robust Imports
+We recently released an update that has made importing from the Azle npm package
+more meaningful and robust. Previously, importing Azle into your TypeScript
+canister was merely a formality. It helped the static type checker, but it
+didn't directly influence how Azle interpreted your canister. Consequently, this
+could lead to numerous unexpected behaviors, especially when importing
+identifiers with names like "Record" or "Variant" from non-Azle modules.
+However, with the introduction of Azle 0.17, we've implemented a significantly
+more robust approach to handling the Azle module, effectively resolving these
+issues.
 
-Recently we released an update that made importing from the Azle npm package
-more meaningful and robust. In the before times importing Azle into your
-TypeScript canister was just a formality. It helped aid your static type
-checker, but until now it didn't actually affect how Azle interpreted your
-canister. As a result there could be a lot of errant behavior, especially if you
-imported something called "Record" or "Variant" from another non-Azle module. As
-of Azle 0.17 we have introduced a much more robust method for handling the Azle
-module, which resolves these issues.
-
-I'm going to pull back the curtain a little, I'll give a brief overview of how
-Azle works to provide context, then talk about our naive first approach and why
-it didn't work, then I'll cover our less naive second approach and how it works
-better and then I'll explore some of the future work we have for our importing
-system.
+I want to pull back the curtain on this update and explain what went into it. To
+provide context, I will first provide a brief overview of how Azle operates,
+then I will discuss our initial, less sophisticated approach and its
+shortcomings, delve into our improved second approach, and its enhanced
+functionality, and finally, explore our future plans for the importing system.
 
 ## How Azle Works (A Very Brief Overview)
+To run a canister on the Internet Computer (IC), it must compile to WebAssembly
+(wasm). To enable TypeScript/JavaScript to run on the IC, we required a
+JavaScript engine that could be compiled to wasm. This allowed us to load a
+canister written in TypeScript into that JavaScript engine, then we can analyze
+the TypeScript canister and create a Rust wrapper to interface with it. The IC
+converts candid values to Rust values, which our wrapper then converts to
+JavaScript values. These values are then passed to the corresponding JavaScript
+functions from your canister which now live within the engine. After execution,
+the value is returned to the wrapper, which converts it back to a Rust value,
+allowing the final conversion to candid.
 
-In order to run a canister on the Internet Computer (IC) the canister needs to
-be able to compile to wasm. To make TypeScript/JavaScript run on the IC we
-needed a JavaScript engine that can be compiled to wasm. Then we can create a
-Rust wrapper to provide an interface to the JavaScript engine. The IC converts
-the candid values to a Rust value so our wrapper can convert it to a JavaScript
-value. We feed those values into the corresponding JavaScript functions that are
-living in the engine. The function runs and returns the value out to the
-wrapper which converts it back to a Rust valve so that those values be converted
-to candid and voila you have a TypeScript/JavaScript canister!
+The Azle npm package serves as a framework, facilitating these operations by
+providing:
 
-The Azle npm package provides two things as a framework to make this all
-possible.
-
-1. Decorators so the developer can tell Azle which functions and custom type
-   need to be exposed in the wrapper, for example
+1. Decorators, allowing developers to specify which functions and custom types
+   should be exposed in the wrapper. Examples include:
     1. `Record`
     1. `Variant`
     1. `$query`
     1. `$update`
-1. Type aliases to use to make sure the parameter, return types, and object
-   properties you are using will match up to valid candid types, for example
+1. Type aliases, ensuring that the parameter, return types, and object
+   properties align with valid candid types. Examples include:
     1. `nat`
     1. `blob`
     1. `int64`
     1. `text`
 
-## The Before Times
+## The Previous Approach
 
-In Azle 0.16 and earlier, you didn't need even need import Azle into a single
-file for it to be able to parse your canister. If you knew the keywords you
-could just use them. If you were working in vanilla vim without any of that
-nasty bulk of an IDE or any the overhead from expensive programming tools, you
-know like a real programmer would, you wouldn't even notice you were missing
-anything.
+In Azle 0.16 and earlier versions, importing Azle was unnecessary for parsing
+your canister. One could simply use the keywords directly.  Azle merely scanned
+files for the literal words "Record", "$query", "nat32", etc. It did not
+validate whether these keywords were from Azle or whether they represented valid
+Azle/candid types. This leniency led to problems.
 
-Thats' because in the before times when Azle parsed your files it just looked
-for the word "Record" or "$query" or "nat32". It wouldn't check to see if those
-keyword actually came from Azle or if they would evaluate to valid Azle/candid
-types. It would just assume it would.
-
-Now, as you can imagine, this could cause a number of problems. You wouldn't be
-able to import an unrelated "Variant" from another package without renaming it,
-and you couldn't rename any of the azle keyword as you imported them. You
-couldn't make type aliases to any of the Azle types. You had to use the exact
-characters in the exact order or else it wouldn't work.
+Issues arose when importing items with the same name as Azle keywords from
+non-Azle packages, necessitating renaming in order to import them. Furthermore,
+renaming Azle keywords during importation or making aliases to them was not
+supported. It was mandatory to use the exact characters in precise order for the
+process to work.
 
 But not any more!
 
-## The Now Times
+## The Current Approach
 
-We have harnessed the power of the TypeScript compiler to almost flawlessly
-determine which keywords are imported from Azle and which one are not.
+We have harnessed the TypeScript compiler's capabilities to determine which
+keywords are imported keywords from Azle and which have no relation to Azle.
 
-The process for doing this was not super obvious or intuitive. It took a lot of
-playing around with the TypeScript package, a lot of digging through it's source
-code, and a lot of refining queries for Chat GPT before we had our break
-through. Now that we know how to do it it doesn't seem like it should have been
-as hard as it was so we want to share what we found so that you need not suffer
-as we have.
+In theory this task wasn't difficult to understand. We just needed to do some
+simple analysis of the imports, trace them back to their origin and see it they
+come from Azle. However, as we tried finding tools to help us do this we found a
+startling lack of good documentation or pre-made tooling. But with a lot of
+experimenting with the TypeScript package, studying its source code, and making
+many progressively more refined queries to Chat GPT we finally made our
+breakthrough. We are eager to share our findings to spare others the challenges
+we faced.
 
-We started with the TypeScript npm package. We figured it must have some way of
-resolving imports because it needs to in order to transpile to JavaScript.
+We started by looking at the TypeScript npm package, reasoning that it must
+possess import resolution capabilities for successful JavaScript transpilation.
 
-We dug around and eventually figured out that the TS Type Checker has all of the
-goodies we could ever ask for! There is a lot to the TS Type Checker and we are
-only going to cover a small portion of it here.
+We eventually discovered that the TS Type Checker offered the functionalities we
+required. There is a lot to the type checker and we will only focus on a small
+subset of its features here.
 
-Since the TypeScript package did end up having exactly what we were looking for
-we decided write this portion our the compiler in TypeScript so we could easily
-take full advantage of the TypeScript module.
+Given the Type Checker's relevance, we decided to implement this part of the
+compiler in TypeScript to fully leverage the TypeScript module.
 
-You get the TS Type Checker from a TS Program. You get th­e TS program by
-compiling your entry file.
+The TS Type Checker comes from a TS Program, which comes from compiling the
+entry file:
 
 ```typescript
 import { createProgram } from 'typescript';
-const program = createProgram([index.ts], {});
+const program = createProgram(['index.ts'], {});
 const typeChecker = program.getTypeChecker();
 ```
 
-With the type checker in hand we can get the symbol table for each file in our
-program.
+With the type checker at our disposal, we can access the symbol table for each
+file in our program:
 
 ```typescript
 const sourceFile = program.getSourceFile('myFile.ts');
@@ -134,53 +129,75 @@ const symbolTable = sourceFileSymbol.valueDeclaration.locals;
 > in various ways, often optimizing them for efficiency and effective management
 > of symbol information.
 
-Now that each file has a symbol table we can figure out how the Azle keywords
-are represented in that file. To do that we loop through each symbol in the
-table and analyze it to determine if it's from angle:
+Now that we have the symbol table for each file we can determine how the Azle
+keywords are represented in that file. This involves looping through each symbol
+in the table and analyzing it to discern its origin:
 
--   If it's a type alias declaration or a variable declaration we can preform the
-    sun analysis on th assigned value.
+- For type alias or variable declarations, we recursively preform the same
+analysis on the assigned value.
 
--   If it's imported from another file then that symbol will have the module
-    specifier for its source module. We can use that to look up the symbol table for
-    that file and continue tracing until we run into the angle module.
+- If a symbol is imported from another file, then it will have a module specifier
+indicating its source. We can look up the Symbol Table for that source and
+continue tracing until we determine if it is related to Azle.
 
-The result is that for each file we have a table that tells us how each Azle
-keyword is represented in that file.
+This approach yields a table for each file, which shows how each Azle keyword
+is represented in that file:
 
 ```typescript
 'myFile.ts': {
     record: [azle.Record, Record, MyRecord],
     variant: [Variant],
-    etc
+    etc.
 }
 ```
 
-Now as we parse if we run into the Type Reference 'azle.Record' we can look that
-up in this table and see that it is meant to be parsed as a Record.
+Now, while parsing, if we encounter the Type Reference 'azle.Record', we can
+determine which, if any, azle keyword it refers to by consulting this table. And
+as in the example table above we see that it should be parsed as a Record.
 
-Now when you are making your Azle projects son can import Azle just about any
-way you want (If you find a way that doesn't work please open an issue for me)
+As a result, your Azle projects can import Azle in any EMCAscript standard way
+(please report any non-functional methods).
 
-What's your imports 'matter now! If you don't import angle it will break. I you
-import south that named "Record" from somewhere other than agh it will not
-break. It's brilliant.
+## Future Developments
 
-## The Future Times
+Our next objective is extending this robustness to user-defined type aliases.
 
-Up next we want to apply this same level of robustness to alias to developer
-define types. If you make a Record using the Azle record decorator and then make
-an alias to that type, it is a little more challenging to get those type aliases
-to be processed properly. It's essentially the same as Azle keywords in the
-before times: any import renaming or use of qualified names will cause those
-alias to break down
+Consider the following example:
 
-Another issue, though much more minor, is that as it stands when we add
-something to our alias table it is treated as though it is the literal Azle
-type. This isn't to much of an issue because as the developer you should almost
-never be digging through our back end. But it does pose some interesting problem
-when we have to report compile and runtime errors to you has the developer. So
-for example if you had:
+myFile.ts:
+```typescript
+import { Record } from 'azle';
+export type MyRecord = azle.Record<{}>;
+```
+
+index.ts:
+```typescript
+import * as aliases from './myFile';
+import { MyRecord } from './myFile';
+import { $query } from 'azle';
+
+type MyBrokenAlias = aliases.MyRecord;
+
+$query;
+export function myBrokenQuery(alias: BrokenRenamedAlias): void {
+    console.log(alias)
+}
+
+type MyAlias = MyRecord;
+export function myQuery(alias: RenamedAlias): void {
+    console.log(alias)
+}
+```
+Simple aliases to user defined types like `MyAlias` as an alias to `MyRecord`
+work just fine. But if more complex tracing is required like resolving the
+qualified name `aliases.MyRecord` for the alias `MyBrokenAlias`, then our
+process breaks down.
+
+Another (though more minor) issue pertains to the current treatment of entries
+in our alias table. They are treated as literal Azle types. This mostly affects
+our Rust wrapper which most developers should only rarely need to look into, but
+it also make reporting compile and runtime errors more ambiguous. For example
+the error for this code snippet:
 
 ```typescript
 type MyNat = azle.nat;
@@ -191,24 +208,21 @@ export function getMyNat(): MyNat {
 }
 ```
 
-The error would say:
+currently would be read:
 
 ```
-false is not of type 'nat'
+TypeError: false is not of type 'nat'
 ```
-
-but it would be a little nicer if we also kept track of the mane it was aliased to so we could say
+It would be more informative if we tracked the alias name, allowing us to say:
 
 ```
-false is not of type 'NyNat'
+TypeError: false is not of type 'MyNat'
 ```
-
 or
 
 ```
-false is not of type 'MyNat' which is an alias to 'nat'
+TypeError: false is not of type 'MyNat', which aliases 'nat'
 ```
-
-Finally, for azle, there is still much that I need to learn about the TypeScript
-type checker. Just in writing this article I have found a couple of thing that I
-could take advantage of to improve our process.
+Finally, for Azle, there remains much to learn about the TypeScript type checker.
+Even while writing this article, I've identified a couple of things that I could
+take advantage of to improve our process.
