@@ -1,7 +1,3 @@
-<style type="text/css">
-    ol ol { list-style-type: lower-alpha; }
-    ol ol ol { list-style-type: lower-roman; }
-</style>
 # Robust Imports
 We recently released an update that has made importing from the Azle npm package
 more meaningful and robust. Previously, importing Azle into your TypeScript
